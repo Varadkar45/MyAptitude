@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/static/css/credit.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/credit.css') }}">
+
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+     <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+<!-- Vendor CSS Files -->
+<link href="static/vendor/aos/aos.css" rel="stylesheet">
+<link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="static/css/index.css" rel="stylesheet">
+
+    <title>Admin Login</title>
+</head>
+<body>
+     <!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+  
+      <div class="logo">
+        <h1><a href="/">APTITUDE</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="static/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+  
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li class="dropdown"><a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/student_register">Student login</a></li>
+              <li><a href="/admin_register">Admin login</a></li>
+  
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+  
+    </div>
+  </header><!-- End Header -->
+      
+      
+      <div class="reg-container">
+          <div class="form-container">
+            <form method="POST" action="/admin_login"  id="login" class="form">
+    <h2><b>Admin Login</b></h2>
+    
+      
+        <input type="email" id="email" name="email" placeholder="Email" required>
+
+        
+        <input type="password" id="password" name="password" placeholder="Password" required>
+
+        <button type="submit">Login</button>
+    </form>
+    <div class="form-toggle">
+        <br>Don't have an account? <a href="admin_register">Register here</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+      

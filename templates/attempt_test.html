@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attempt Tests</title>
+</head>
+<body>
+  <h1>Attempt Test</h1>
+  <h2>{{ test_details.test_name }}</h2>
+
+  <form method="POST" action="/submit_created_test/{{ test_details._id }}">
+    <p>Debug: Number of Questions: {{ test_data|length }}</p>
+
+    {% for question in test_data %}
+      <div class="question">
+        <p>{{ question['question'] }}</p> <!-- Use correct case 'question' -->
+        <div class="options">
+          <input type="radio" name="question_{{ loop.index }}" value="{{ question['option1'] }}"> {{ question['option1'] }}<br>
+          <input type="radio" name="question_{{ loop.index }}" value="{{ question['option2'] }}"> {{ question['option2'] }}<br>
+          <input type="radio" name="question_{{ loop.index }}" value="{{ question['option3'] }}"> {{ question['option3'] }}<br>
+          <input type="radio" name="question_{{ loop.index }}" value="{{ question['option4'] }}"> {{ question['option4'] }}<br>
+        </div>
+      </div>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary">Submit Test</button>
+  </form>
+</body>
+</html>

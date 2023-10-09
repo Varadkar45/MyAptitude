@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Questions</title>
+</head>
+<body>
+    <h1>Test Questions</h1>
+
+    <form method="POST" action="/submit_test">
+        {% for question in test_questions %}
+        <div class="question">
+            <h2>Question {{ loop.index }}</h2>
+            <p>{{ question.question }}</p>
+            
+            <label for="choice_{{ loop.index }}_1">
+                <input type="radio" id="choice_{{ loop.index }}_1" name="answer_{{ loop.index }}" value="{{ question.option1 }}">
+                {{ question.option1 }}
+            </label><br>
+            
+            <label for="choice_{{ loop.index }}_2">
+                <input type="radio" id="choice_{{ loop.index }}_2" name="answer_{{ loop.index }}" value="{{ question.option2 }}">
+                {{ question.option2 }}
+            </label><br>
+            
+            <label for="choice_{{ loop.index }}_3">
+                <input type="radio" id="choice_{{ loop.index }}_3" name="answer_{{ loop.index }}" value="{{ question.option3 }}">
+                {{ question.option3 }}
+            </label><br>
+            
+            <label for="choice_{{ loop.index }}_4">
+                <input type="radio" id="choice_{{ loop.index }}_4" name="answer_{{ loop.index }}" value="{{ question.option4 }}">
+                {{ question.option4 }}
+            </label><br>
+        </div>
+        {% endfor %}
+
+        <input type="submit" value="Submit Test">
+    </form>
+
+    <a href="/teacher_dashboard">Back to Teacher Dashboard</a>
+</body>
+</html>

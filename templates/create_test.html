@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Test</title>
+</head>
+<body>
+    <h1>Create Test</h1>
+
+    <form method="POST" action="/create_test">
+        <label for="test_name">Test Name:</label>
+        <input type="text" name="test_name" required><br>
+
+        <label for="quants_questions">Number of Quants Questions:</label>
+        <input type="number" name="quants_questions" required><br>
+
+        <label for="verbal_questions">Number of Verbal Questions:</label>
+        <input type="number" name="verbal_questions" required><br>
+
+        <label for="logical_questions">Number of Logical Questions:</label>
+        <input type="number" name="logical_questions" required><br>
+
+        <input type="submit" value="Create Test">
+    </form>
+
+    <a href="/teacher_dashboard">Back to Teacher Dashboard</a>
+</body>
+</html>

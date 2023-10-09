@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uploaded Test Details</title>
+</head>
+<body>
+    <h1>Uploaded Test Details</h1>
+    <p><strong>Test Name:</strong> {{ uploaded_test_details.test_name }}</p>
+
+    <h2>Test Questions</h2>
+    <ul>
+        {% for question in test_data %}
+            <li>{{ question['Question'] }}</li>
+            <ul>
+                <li>Option 1: {{ question['Option 1'] }}</li>
+                <li>Option 2: {{ question['Option 2'] }}</li>
+                <li>Option 3: {{ question['Option 3'] }}</li>
+                <li>Option 4: {{ question['Option 4'] }}</li>
+                <li>Correct Answer: {{ question['Correct Answer'] }}</li>
+            </ul>
+        {% endfor %}
+    </ul>
+
+    <a href="/admin_dashboard">Back to Dashboard</a>
+</body>
+</html>

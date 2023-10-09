@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Tests</title>
+</head>
+<body>
+    <h1>Available Tests</h1>
+    
+    <h2>Created Tests:</h2>
+    <ul>
+        {% for test in available_created_tests %}
+            <li>{{ test.test_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Uploaded Tests:</h2>
+    <ul>
+        {% for test in available_uploaded_tests %}
+            <li>{{ test.test_name }}</li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Add links to take the student to the respective test pages -->
+    <p>Click on a test to attempt it:</p>
+    <ul>
+        {% for test in available_created_tests %}
+            <li><a href="/attempt_test/created/{{ test._id }}">Attempt Created Test: {{ test.test_name }}</a></li>
+        {% endfor %}
+        {% for test in available_uploaded_tests %}
+            <li><a href="/attempt_uploaded_test/uploaded/{{ test._id }}">Attempt Uploaded Test: {{ test.test_name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="/student_dashboard">Back to Dashboard</a></p>
+</body>
+</html>

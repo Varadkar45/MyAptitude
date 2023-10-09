@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+</head>
+<body>
+  <h1>Welcome, {{ student_name }}</h1>
+  <h2>Student Profile</h2>
+
+  <p><strong>Name:</strong> {{ student_name }}</p>
+  <p><strong>Email:</strong> {{ student_email }}</p>
+
+  <h3>Test Scores</h3>
+  <table>
+    <tr>
+      <th>Test Name</th>
+      <th>Score (%)</th>
+      <th>Submission Time</th>
+    </tr>
+
+    {% for score in scores %}
+    <tr>
+      <td>{{ score.test_name }}</td>
+      <td>{{ score.score }}</td>
+      <td>{{ score.submission_time }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <a href="/student_dashboard">Back to dashboard</a>
+</body>
+</html>

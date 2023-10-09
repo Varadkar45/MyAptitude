@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Scores</title>
+</head>
+<body>
+  <h1>Welcome, {{ admin_name }}</h1>
+  <h2>Students Scores</h2>
+
+  <table>
+    <tr>
+      <th>Student Name</th>
+      <th>Student Email</th>
+      <th>Test Name</th>
+      <th>Score (%)</th>
+      <th>Submission Time</th>
+    </tr>
+
+    {% for score in student_scores %}
+    <tr>
+      <td>{{ score.student_name }}</td>
+      <td>{{ score.student_email }}</td>
+      <td>{{ score.test_name }}</td>
+      <td>{{ score.score }}</td>
+      <td>{{ score.submission_time }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <a href="/admin_dashboard">Back to Admin Dashboard</a>
+</body>
+</html>

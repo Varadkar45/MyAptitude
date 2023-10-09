@@ -1,0 +1,31 @@
+﻿Question,Option 1,Option 2,Option 3,Option 4,Correct Answer
+"1. If all cats are mammals and Mittens is a cat, is Mittens a mammal?",Yes,No,Maybe,Depends on other factors,Yes
+"2. If A implies B and B implies C, does A imply C?",Yes,No,Maybe,Depends on the context,Yes
+"3. If all roses are flowers and some flowers fade quickly, do all roses fade quickly?",Yes,No,Maybe,Depends on the type of rose,No
+"4. If John is taller than Mary, and Mary is taller than Sarah, who is the tallest?",John,Mary,Sarah,Cannot be determined,Cannot be determined
+"5. If every student in the class passed the test, and Susan is a student, did Susan pass the test?",Yes,No,Maybe,Not enough information,Yes
+"6. If some birds can fly and penguins cannot fly, can we conclude that penguins are not birds?",Yes,No,Maybe,Depends on definitions,No
+"7. If it's raining, then the ground will be wet. Is the ground wet if it's not raining?",Yes,No,Maybe,Depends on other factors,No
+"8. If all rectangles are squares, and all squares have four sides, do all rectangles have four sides?",Yes,No,Maybe,Depends on definitions,Yes
+"9. If Alice is taller than Bob, and Bob is taller than Carol, who is the shortest?",Alice,Bob,Carol,Cannot be determined,Cannot be determined
+"10. If 2 + 2 = 4 and 3 + 3 = 6, what does 4 + 4 equal?",8,10,12,16,8
+"11. If all fruits grow on trees and bananas are fruits, do bananas grow on trees?",Yes,No,Maybe,Depends on the type of banana,Yes
+"12. If some mammals are carnivores and all lions are mammals, are all lions carnivores?",Yes,No,Maybe,Depends on other factors,Yes
+"13. If no reptiles have fur, and some mammals have fur, can we conclude that no mammals are reptiles?",Yes,No,Maybe,Depends on definitions,Yes
+"14. If Tom is older than Jerry, and Jerry is older than Mike, who is the youngest?",Tom,Jerry,Mike,Cannot be determined,Cannot be determined
+"15. If all prime numbers are odd, is 2 a prime number?",Yes,No,Maybe,Depends on definitions,Yes
+"16. If all cars have wheels, and all bicycles have wheels, do all bicycles have engines?",Yes,No,Maybe,Depends on other factors,No
+"17. If Lucy is taller than Sarah, and Sarah is taller than Emily, who is the tallest?",Lucy,Sarah,Emily,Cannot be determined,Cannot be determined
+"18. If some athletes are strong and all weightlifters are athletes, are all weightlifters strong?",Yes,No,Maybe,Depends on other factors,Yes
+"19. If no mammals lay eggs, and all kangaroos are mammals, do kangaroos lay eggs?",Yes,No,Maybe,Depends on definitions,No
+"20. If A is married to B, and B is married to C, is A married to C?",Yes,No,Maybe,Depends on the context,No
+"21. If some reptiles can swim, and turtles are reptiles, can turtles swim?",Yes,No,Maybe,Depends on definitions,Yes
+"22. If all dogs are mammals and all cats are mammals, can we conclude that all dogs are cats?",Yes,No,Maybe,Depends on definitions,No
+"23. If it's daytime, then the sun is out. Is the sun out at night?",Yes,No,Maybe,Depends on the location,No
+"24. If every square is a rectangle, and rectangles have four sides, do all squares have four sides?",Yes,No,Maybe,Depends on definitions,Yes
+"25. If some birds are migratory and all sparrows are birds, are some sparrows migratory?",Yes,No,Maybe,Depends on other factors,Yes
+"26. If Jack is older than Jill, and Jill is older than Tim, who is the youngest?",Jack,Jill,Tim,Cannot be determined,Cannot be determined
+"27. If no apples are oranges, and all oranges are fruits, can we conclude that no fruits are apples?",Yes,No,Maybe,Depends on definitions,Yes
+"28. If every right angle is 90 degrees and all squares have right angles, do all squares have 90-degree angles?",Yes,No,Maybe,Depends on definitions,Yes
+"29. If some computers run on electricity and all laptops are computers, do some laptops run on electricity?",Yes,No,Maybe,Depends on other factors,Yes
+"30. If 5 + 5 = 10 and 6 + 6 = 12, what does 7 + 7 equal?",14,16,18,20,14

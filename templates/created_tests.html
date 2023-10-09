@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Created Tests</title>
+</head>
+<body>
+    <h1>Tests Created by {{ admin_name }}!</h1>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Test Name</th>
+                <th>Created At</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for test in created_tests %}
+            <tr>
+                <td>{{ test['test_name'] }}</td>
+                <td>{{ test['created_at'] }}</td>
+                <td>
+                    <a href="{{ url_for('view_test', test_id=test['_id']) }}">View Test Details</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/admin_dashboard">Back to Admin Dashboard</a>
+</body>
+</html>

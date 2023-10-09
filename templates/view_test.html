@@ -1,0 +1,27 @@
+<!--view_test.html-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Details</title>
+</head>
+<body>
+    <h1>Test Details</h1>
+    <p><strong>Test Name:</strong> {{ test_details.test_name }}</p>
+
+    <h2>Test Questions</h2>
+    <ul>
+        {% for question in test_details.test_questions %}
+            <li>{{ question.question }}</li>
+            <ul>
+                <li>Option 1: {{ question.option1 }}</li>
+                <li>Option 2: {{ question.option2 }}</li>
+                <li>Option 3: {{ question.option3 }}</li>
+                <li>Option 4: {{ question.option4 }}</li>
+                <li>Correct Answer: {{ question.correct_answer }}</li>
+            </ul>
+        {% endfor %}
+    </ul>
+
+    <a href="/admin_dashboard">Back to Dashboard</a>
+</body>
+</html>

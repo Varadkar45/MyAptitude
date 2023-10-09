@@ -1,0 +1,25 @@
+<!--admin_dashboard.html-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>admin Dashboard</title>
+</head>
+<body>
+    <h1>Welcome,{{ admin_name }}!</h1>
+<hr>
+    <a href="/create_test">Create a New Test</a>
+    <br>
+    <a href="/upload_test">Upload a Test</a>
+
+    <li><a href="/created_tests">Created Tests</a></li>  <!-- Link to view tests created by the admin -->
+    <li><a href="/uploaded_tests">View Uploaded Test</a></li>
+
+    
+        <li><a href="/see_student_scores/{{ user_email }}">See studdent Scores</a></li>
+
+
+    <br><br>
+    <a href="/admin_profile">Profile</a>
+    <a href="/admin_login">Logout</a>
+</body>
+</html>

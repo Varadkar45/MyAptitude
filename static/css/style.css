@@ -1,0 +1,13 @@
+/* styles.css */
+
+/* Style labels for radio buttons */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Style radio buttons */
+.option {
+    margin-right: 5px;
+}
