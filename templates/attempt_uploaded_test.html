@@ -2,13 +2,78 @@
 <html>
 <head>
     <title>Attempt Uploaded Test</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f2f2f2;
+          margin: 0;
+          padding: 0;
+      }
+
+      h1 {
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          padding: 20px;
+          margin: 0;
+      }
+
+      h2 {
+          text-align: center;
+      }
+
+      #timer {
+          text-align: center;
+          font-size: 20px;
+          margin: 20px;
+      }
+
+      .question {
+          background-color: #fff;
+          border: 1px solid #ccc;
+          margin: 10px;
+          padding: 10px;
+      }
+
+      .options {
+          margin: 10px 0;
+      }
+
+      input[type="radio"] {
+          margin-right: 5px;
+      }
+
+      .btn {
+          display: block;
+          width: 100%;
+          max-width: 200px;
+          margin: 20px auto;
+          padding: 10px;
+          text-align: center;
+          background-color: #333;
+          color: #fff;
+          text-decoration: none;
+          cursor: pointer;
+      }
+      .questions {
+          padding: 10px;
+      }
+      .btn:hover {
+          background-color: #555;
+      }
+      
+  </style>
 </head>
 <body>
   <h1>Attempt Uploaded Test</h1>
   <h2>{{ test_details.test_name }}</h2>
 
+  <!-- Display the timer -->
+
+<p id="timer"></p>
+
   <form method="POST" action="/submit_uploaded_test/{{ test_details._id }}">
-    <p>Debug: Number of Questions: {{ test_data|length }}</p>
+    <p> Number of Questions: {{ test_data|length }}</p>
 
     {% for question in test_data %}
       <div class="question">
@@ -24,5 +89,49 @@
 
     <button type="submit" class="btn btn-primary">Submit Test</button>
   </form>
+
+
+
+<!-- Include the following JavaScript code to start the timer -->
+<script>
+  var timerDurationMinutes = {{ timer_duration }};  // Get the timer duration from the template
+
+  // Function to update the timer countdown
+  function updateTimer() {
+    var timerDisplay = document.getElementById("timer");
+    var timerDurationSeconds = timerDurationMinutes * 60;
+
+    var interval = setInterval(function() {
+      if (timerDurationSeconds <= 0) {
+        clearInterval(interval);
+        // Timer has ended, submit the test
+        submitTest();
+      } else {
+        var minutes = Math.floor(timerDurationSeconds / 60);
+        var seconds = timerDurationSeconds % 60;
+        timerDisplay.innerHTML = padZero(minutes) + "m " + padZero(seconds) + "s";
+        timerDurationSeconds--;
+      }
+    }, 1000);
+  }
+
+  // Function to submit the test when the timer ends
+  function submitTest() {
+    document.getElementById("test_submission_form").submit();
+  }
+
+  // Function to add leading zero to single-digit numbers
+  function padZero(num) {
+    return (num < 10 ? '0' : '') + num;
+  }
+
+  // Start the timer countdown when the page loads
+  window.onload = function () {
+    updateTimer();
+  };
+</script>
+<!-- End of JavaScript code for the timer -->
+
+  <!-- End of JavaScript code for the timer -->
 </body>
 </html>

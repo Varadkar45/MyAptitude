@@ -2,6 +2,71 @@
 <html>
 <head>
     <title>Student Profile</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f0f0; /* Background color */
+          margin: 0;
+          padding: 0;
+      }
+  
+      h1 {
+          background-color: #333; /* Header background color */
+          color: #fff; /* Header text color */
+          padding: 10px;
+      }
+  
+      h2 {
+          color: #333; /* Subheader text color */
+      }
+  
+      p {
+          color: #666; /* Text color */
+      }
+  
+      table {
+          width: 80%;
+          margin: 20px auto;
+          border-collapse: collapse;
+          background-color: #fff; /* Table background color */
+      }
+  
+      th, td {
+          border: 1px solid #ccc; /* Table cell border */
+          padding: 8px;
+          text-align: left;
+      }
+  
+      th {
+          background-color: #333; /* Table header background color */
+          color: #fff; /* Table header text color */
+      }
+  
+      a {
+          color: #333; /* Link text color */
+          text-decoration: none;
+      }
+  
+      a:hover {
+          text-decoration: underline;
+      }
+      .btn {
+          display: block;
+          width: 150px;
+          margin: 20px auto;
+          background-color: #3498db;
+          color: white;
+          text-align: center;
+          padding: 10px;
+          border: none;
+          text-decoration: none;
+          cursor: pointer;
+      }
+
+      .btn:hover {
+          background-color: #2374ab;
+      }
+  </style>
 </head>
 <body>
   <h1>Welcome, {{ student_name }}</h1>
@@ -27,6 +92,6 @@
     {% endfor %}
   </table>
 
-  <a href="/student_dashboard">Back to dashboard</a>
+  <a href="/student_dashboard" class="btn">Back to dashboard</a>
 </body>
 </html>

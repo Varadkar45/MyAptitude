@@ -3,19 +3,94 @@
 <html>
 <head>
     <title>admin Dashboard</title>
+    <style>
+        /* Style the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Style the header */
+h1 {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Style the links */
+a {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color:#333;
+}
+
+/* Style the list items */
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: center;
+}
+
+/* Add a bottom border to the hr element */
+hr {
+    border: none;
+    border-top: 2px solid #3498db;
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Style the links within list items */
+li a {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+li a:hover {
+    background-color: #2374ab;
+}
+
+    </style>
 </head>
 <body>
     <h1>Welcome,{{ admin_name }}!</h1>
-<hr>
+
     <a href="/create_test">Create a New Test</a>
-    <br>
+    
     <a href="/upload_test">Upload a Test</a>
+
+    <a href="/scrapy">Scrap real time Questions</a>
 
     <li><a href="/created_tests">Created Tests</a></li>  <!-- Link to view tests created by the admin -->
     <li><a href="/uploaded_tests">View Uploaded Test</a></li>
 
     
-        <li><a href="/see_student_scores/{{ user_email }}">See studdent Scores</a></li>
+        <li><a href="/see_student_scores/{{ user_email }}">See Student Scores</a></li>
 
 
     <br><br>

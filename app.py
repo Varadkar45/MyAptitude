@@ -219,11 +219,14 @@ def create_test():
             print(f"Verbal Questions: {request.form.get('verbal_questions')}")
             print(f"Logical Questions: {request.form.get('logical_questions')}")
 
-            admin_email = session['user_email']  # Get the admin's email from the session
-            test_name = request.form.get('test_name')  # Get the test name from the form
+            admin_email = session['user_email']
+            test_name = request.form.get('test_name')
             quants_count = int(request.form.get('quants_questions'))
             verbal_count = int(request.form.get('verbal_questions'))
             logical_count = int(request.form.get('logical_questions'))
+            
+            # Add code to retrieve the test duration entered by the teacher
+            test_duration = int(request.form.get('test_duration'))
 
             # Fetch random questions from MongoDB for each section
             quants_questions = get_random_questions('quants', quants_count)
@@ -236,7 +239,7 @@ def create_test():
             print(f"Quants Count: {quants_count}")
             print(f"Verbal Count: {verbal_count}")
             print(f"Logical Count: {logical_count}")
-
+            
             # Combine questions from all sections to create a test
             test_questions = quants_questions + verbal_questions + logical_questions
 
@@ -250,6 +253,7 @@ def create_test():
                 "admin_email": admin_email,
                 "test_name": test_name,
                 "test_questions": test_questions,
+                "test_duration": test_duration,  # Add the test duration here
                 "created_at": datetime.utcnow()
             }
 
@@ -410,6 +414,7 @@ def upload_test():
         if request.method == 'POST':
             test_name = request.form.get('test_name')
             test_file = request.files['test_file']
+            test_duration = int(request.form.get('test_duration', 0))  # Get the test duration
 
             if test_file:
                 # Check if the uploaded file is an Excel or CSV file
@@ -425,26 +430,25 @@ def upload_test():
                         # Convert the test data to a JSON format or handle it as needed
                         # ...
 
-                        # Save the test name, admin details, and data to the uploaded_tests_collection
+                        # Save the test name, admin details, data, and test duration
                         uploaded_test_document = {
                             "admin_email": session['user_email'],
-                            "test_name": test_name,  # Store the test name
-                            "test_data": test_data.to_dict(orient='records'),  # Convert to JSON format
+                            "test_name": test_name,
+                            "test_data": test_data.to_dict(orient='records'),
+                            "test_duration": test_duration,  # Store the test duration
                             "created_at": datetime.utcnow()
                         }
                         uploaded_test_id = uploaded_tests_collection.insert_one(uploaded_test_document).inserted_id
                         print("Uploaded Test Name:", test_name)
 
                         # After creating the test, update the admin's record
-                        admin_email = session['user_email']  # Get the admin's email from the session
-                        test_name = request.form.get('test_name')  # Get the test name from the form
+                        admin_email = session['user_email']
+                        test_name = request.form.get('test_name')
 
-                        # Assuming 'admin_collection' is your admin collection
                         admin_collection.update_one(
                             {'email': admin_email},
                             {'$push': {'uploaded_tests': test_name}}
                         )
-                       
 
                         flash("Test uploaded successfully!", "success")
                         return redirect('/admin_dashboard')
@@ -455,12 +459,13 @@ def upload_test():
 
             flash("Invalid file format. Please upload an Excel (.xlsx) or CSV (.csv) file.", "error")
 
-            
         return render_template('upload_test.html')
 
     else:
         flash("You must be logged in as an admin to upload a test.", "warning")
         return redirect('/admin_login')
+
+
 
 #view uploaded tests
 @app.route('/uploaded_tests')
@@ -554,6 +559,7 @@ def available_tests():
         return redirect('/student_login')
 
 #attempt test
+# Modify the 'attempt_test' route
 @app.route('/attempt_test/<test_type>/<test_id>', methods=['GET'])
 def attempt_test(test_type, test_id):
     try:
@@ -563,20 +569,27 @@ def attempt_test(test_type, test_id):
         # Fetch the test details from the appropriate collection based on 'test_type'
         if test_type == 'created':
             test_details = tests_collection.find_one({'_id': test_id})
-        
+            if test_details:
+                timer_duration = test_details.get('test_duration', 0)  # Fetch the timer duration from the test details
+                test_name = test_details.get('test_name', 'Test')
         else:
             flash("Invalid test type.", "danger")
             return redirect('/available_tests')  # Redirect to available tests page
 
-        if test_details:
-            # Determine the source of the test data (form or uploaded file)
-            if 'test_questions' in test_details:
-                # The test was created through a form
-                test_data = test_details.get('test_questions', [])
-            
+        if timer_duration > 0:  # Check if the timer is set
+            timer_duration_minutes = timer_duration
+        else:
+            timer_duration_minutes = 0
 
-            # Render the 'attempt_test.html' template with the test details and test data
-            return render_template('attempt_test.html', test_details=test_details, test_data=test_data)
+        if test_details:
+            # Render the 'attempt_test.html' template with the test details, test data, and timer information
+            return render_template(
+                'attempt_test.html',
+                test_details=test_details,
+                test_data=test_details['test_questions'],
+                timer_duration=timer_duration_minutes,
+                test_name=test_name
+            )
         else:
             flash("Test not found.", "danger")
             return redirect('/available_tests')  # Redirect to available tests page if the test is not found
@@ -585,6 +598,50 @@ def attempt_test(test_type, test_id):
         print(f"An error occurred while fetching the test details: {str(e)}")
         flash("An error occurred while fetching the test details.", "danger")
         return redirect('/available_tests')  # Redirect to available tests page in case of an error
+
+
+from datetime import datetime, timedelta
+
+from datetime import datetime
+
+def is_time_up(timer_end_time):
+    current_time = datetime.now()
+    return current_time >= timer_end_time
+
+
+def get_timer_end_time(test_duration):
+    # Convert test_duration from minutes to seconds
+    test_duration_seconds = test_duration * 60
+
+    # Calculate the end time of the timer
+    current_time = datetime.now()
+    timer_end_time = current_time + timedelta(seconds=test_duration_seconds)
+
+    return timer_end_time
+
+# Now you can use this function in your Flask route or view
+
+from datetime import datetime, timedelta
+
+
+# Add the timer-related functions
+
+def is_time_up(timer_end_time):
+    current_time = datetime.now()
+    return current_time >= timer_end_time
+
+
+def get_timer_end_time(test_duration):
+    # Convert test_duration from minutes to seconds
+    test_duration_seconds = test_duration * 60
+
+    # Calculate the end time of the timer
+    current_time = datetime.now()
+    timer_end_time = current_time + timedelta(seconds=test_duration_seconds)
+    return timer_end_time
+
+
+# Update the 'attempt_uploaded_test' route
 
 @app.route('/attempt_uploaded_test/<test_type>/<test_id>', methods=['GET'])
 def attempt_uploaded_test(test_type, test_id):
@@ -594,9 +651,9 @@ def attempt_uploaded_test(test_type, test_id):
         test_id = ObjectId(test_id)
 
         # Fetch the test details from the uploaded_tests_collection using the provided test_id
-        if test_type =='uploaded':
+        if test_type == 'uploaded':
             test_details = uploaded_tests_collection.find_one({'_id': test_id})
-        
+
         else:
             flash("Invalid test type.", "danger")
             return redirect('/available_tests')
@@ -604,9 +661,18 @@ def attempt_uploaded_test(test_type, test_id):
         if test_details:
             if 'test_data' in test_details:
                 test_data = test_details.get('test_data', [])
-            
-            # Render the 'attempt_uploaded_test.html' template with the test details
-            return render_template('attempt_uploaded_test.html', test_details=test_details, test_type=test_type, test_data=test_data)
+
+            timer_duration = test_details.get('test_duration', 0)
+            timer_end_time = get_timer_end_time(timer_duration)  # Calculate the timer end time
+
+            if is_time_up(timer_end_time):
+                # Automatic test submission if time is up
+                flash("Test submitted automatically. Time is up.", "success")
+                return redirect('/student_dashboard')  # Redirect to student dashboard after submission
+
+            # Render the 'attempt_uploaded_test.html' template with the test details and timer information
+            return render_template('attempt_uploaded_test.html', test_details=test_details, test_type=test_type,
+                                   test_data=test_data, timer_duration=timer_duration, timer_end_time=timer_end_time)
         else:
             flash("Test not found.", "danger")
             return redirect('/available_tests')  # Redirect to available tests page if the test is not found
@@ -615,6 +681,7 @@ def attempt_uploaded_test(test_type, test_id):
         print(f"An error occurred while fetching the test details: {str(e)}")
         flash("An error occurred while fetching the test details.", "danger")
         return redirect('/available_tests')  # Redirect to available tests page in case of an error
+
 
 @app.route('/submit_uploaded_test/<test_id>', methods=['POST'])
 def submit_uploaded_test(test_id):
@@ -708,9 +775,20 @@ def submit_created_test(test_id):
                 # The test was created through a form
                 test_data = test_details.get(test_data_field, [])
 
-                # Handle student's test submission here and calculate the score
-                # You can compare the submitted answers with the correct answers
+                # Check if the time is up by calling the is_time_up function
+                timer_duration = test_details.get('test_duration', 0)
+                timer_end_time = get_timer_end_time(timer_duration)
+                if is_time_up(timer_end_time):
+                    # Automatic test submission if time is up
+                    flash("Test submitted automatically. Time is up.", "success")
 
+                    # You can update the submission record with a special flag to indicate automatic submission
+                    # For example, add a key-value pair like 'submitted_auto': True
+                    # Modify the submission record accordingly
+
+                    return redirect('/student_dashboard')  # Redirect to student dashboard after submission
+
+                # Continue with manual submission if time is not up
                 student_answers = {}
                 score = 0
 
@@ -824,5 +902,25 @@ def see_student_scores(admin_email):
         return redirect('/admin_dashboard')  # Redirect to admin dashboard in case of an error
 
 
+import subprocess
+
+
+
+
+
+@app.route('/scrapy')
+def scrap_real_time_questions():
+    try:
+        # Execute the scrap.py script
+        subprocess.run(['python', 'scrap.py'])
+        # If the script execution is successful, you can redirect the user or show a message
+        return "Scraping completed successfully!"
+    except Exception as e:
+        # Handle any exceptions that may occur during scraping
+        return f"An error occurred: {str(e)}"
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+

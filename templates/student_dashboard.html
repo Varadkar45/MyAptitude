@@ -2,17 +2,67 @@
 <html>
 <head>
     <title>Student Dashboard</title>
-    <!-- Include any CSS styles you need for formatting -->
+    <style>
+        /* Add CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1b1b1b;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: #1b1b1b;
+            text-align: center;
+        }
+
+        li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            background-color: #333;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome, {{ user_name }}!</h1>
+    <h1 style="background-color: #333; color: #fff; text-align: center; padding: 20px; margin: 0;">Welcome, {{ user_name }}!</h1>
     
-    <ul>
-        
-        <li><a href="/available_tests">available test</a></li>
-        <li><a href="/student_profile">Profile</a></li>
-        <li><a href="/student_login">Logout</a></li>
+    <ul style="list-style-type: none; padding: 0; background-color: #1b1b1b; text-align: center;">
+        <li style="display: inline; margin-right: 20px;"><a href="/available_tests" style="text-decoration: none; color: #fff; font-weight: bold;"><button style="background-color: #333; border: none; color: #fff; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 10px; cursor: pointer;">Available Tests</button></a></li>
+        <li style="display: inline; margin-right: 20px;"><a href="/student_profile" style="text-decoration: none; color: #fff; font-weight: bold;"><button style="background-color: #333; border: none; color: #fff; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 10px; cursor: pointer;">Student Profile</button></a></li>
+        <li style="display: inline;"><a href="/student_login" style="text-decoration: none; color: #fff; font-weight: bold;"><button style="background-color: #333; border: none; color: #fff; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 10px; cursor: pointer;">Student Login</button></a></li>
     </ul>
-   
 </body>
+
 </html>
