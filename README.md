@@ -23,6 +23,7 @@ is needed in today's era to gain success in aptitude rounds of various companies
 <h3>#Drawbacks of Existing System Architecture:</h3>
 This brings up the age-old debate between storing information in databases and storing it on paper.
 The following issues arise when information is kept in hard copy papers.
+<br>
 • Lack of space – It becomes a problem in itself to find space to keep the sheets of paper being
 generated as a result of the ongoing discussion. The documents being generated are too
 important to be ill-treated.
