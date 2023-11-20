@@ -27,13 +27,17 @@ The following issues arise when information is kept in hard copy papers.
 • Lack of space – It becomes a problem in itself to find space to keep the sheets of paper being
 generated as a result of the ongoing discussion. The documents being generated are too
 important to be ill-treated.
+<br>
 • Filing poses a problem – Filing the documents categorically is a time consuming and tedious
 exercise.
+<br>
 • Filtering is not easy – It becomes hard to filter relevant documents for the irrelevant ones if the
 count of the same crosses a certain manageable number.
+<br>
 • Reviewing becomes time-consuming – All the process done manually at the centers and all the
 records are maintained on the papers. So, the maintenance of the record is very difficult in the
 departments and as well as it’s very difficult for the workers to check the record.
+<br>
 • Lots of Manual work: In existing system teacher have to enter questions manually one by one
 which require too much efforts and time.
 
