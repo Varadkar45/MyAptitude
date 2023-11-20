@@ -1,6 +1,6 @@
 # MyAptitude - ONLINE APTITUDE EXAM GENERATION SYSTEM USING WEB SCRAPING
 
-<h1>#Abstract<h1>
+<h3>#Abstract:</h3>
 In today’s fast-paced world, people like things in shortcut – quickest, fastest, easiest, least effort
 path paradigm – and sometimes creating different aptitude questions sets of questions can be a hectic
 task for companies while conducting aptitude rounds of employees for various job profiles and also
@@ -20,7 +20,7 @@ developing an Online Aptitude Exam Generation System in which question papers wo
 generated in real time and also the students can practice aptitude questions to gain a idea about what
 is needed in today's era to gain success in aptitude rounds of various companies.
 
-#Drawbacks of Existing System Architecture
+<h3>#Drawbacks of Existing System Architecture:</h3>
 This brings up the age-old debate between storing information in databases and storing it on paper.
 The following issues arise when information is kept in hard copy papers.
 • Lack of space – It becomes a problem in itself to find space to keep the sheets of paper being
@@ -36,7 +36,7 @@ departments and as well as it’s very difficult for the workers to check the re
 • Lots of Manual work: In existing system teacher have to enter questions manually one by one
 which require too much efforts and time.
 
-#Proposed System Architecture
+<h3>#Proposed System Architecture:</h3>
 The previous sections discussed the strengths and weaknesses of the existing system. In order to
 achieve better domain results, we are proposing an innovative mechanism which allows exams
 authority to conduct an online aptitude examination using web scraping. The proposed system will
@@ -54,7 +54,7 @@ system to be used by their own dataset for example one of the organizationor one
 has its own dataset the same can be achieved through upload module. And the same questions will
 be fetched from the uploaded CSV file.
 
-#Summary
+<h3>#Summary:</h3>
 Imagine your part of a group working on a project, and your goal is to develop an online platform for 
 generating aptitude exams in real-time. Instead of relying on a static set of questions, the system 
 would dynamically fetch questions as needed.To accomplish this, we would leverage web scraping 
