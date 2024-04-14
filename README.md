@@ -27,20 +27,19 @@
   <p align="center" style="padding: 10px">
     <img alt="Concept" src="/images/concept_diagram.png" width="900">
     
-    <br>
+    
   </p> 
   
 </td>
 </tr></table>
 <p style="text-align: center">Concept Diagram</p>
-
+<br>
 <table><tr>
 <td> 
   <p align="center" style="padding: 10px">
     <img alt="flowchart" src="/images/flowchart.png" width="850">
-    <p>Flowchart of Application</p>
     <br>
   </p>
 </td>
 </tr></table>
-<p style="text-align: center">Flowchart</p>
+<p style="text-align: center">Flowchart of Application</p>
