@@ -13,27 +13,27 @@
 <br>
 <strong>-->Tech Stack</strong>
 
-**FrontEnd:** Html, CSS, Javascript
+- **FrontEnd:** Html, CSS, Javascript
 
-**Backend:** Flask
+- **Backend:** Flask
 
-**Database:** MongoDB
+- **Database:** MongoDB
 
-**Web Scraping:** BeautifulSoup
+- **Web Scraping:** BeautifulSoup
 
 
 <table><tr>
 <td> 
+<br>
   <p align="center" style="padding: 10px">
     <img alt="Concept" src="/images/concept_diagram.png" width="900">
-    
-    
   </p> 
   
 </td>
 </tr></table>
 <p style="text-align: center">Concept Diagram</p>
 <br>
+
 <table><tr>
 <td> 
   <p align="center" style="padding: 10px">
