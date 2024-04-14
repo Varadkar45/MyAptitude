@@ -8,26 +8,32 @@
 <strong>-->Proposed System Architecture:</strong>
 <p>In response to the shortcomings of existing methodologies, our proposed system introduces a sophisticated online aptitude examination platform empowered by web scraping capabilities. This advanced architecture automates the question selection and paper generation processes by dynamically sourcing questions in real time from a diverse array of online repositories. Comprising modular components for paper creation, examination administration, and result processing, our system minimizes human intervention while maximizing efficiency and accuracy. The proposed system offers examination authorities the flexibility to tailor question papers to specific requirements, including the number of questions and minimum passing thresholds. Furthermore, organizations have the option to upload custom question datasets, fostering adaptability and customization. Students stand to benefit significantly from the system's comprehensive features, gaining access to a wealth of practice materials to hone their aptitude skills and excel in examinations. By embracing cutting-edge technology and automation, our proposed system not only streamlines the examination process but also enhances accessibility, scalability, and fairness. It represents a paradigm shift in the realm of aptitude assessments, promising a more seamless and equitable experience for both candidates and administrators.</p>
 
-<strong>Summary:</strong>
+<strong>-->Summary:</strong>
 <p>Imagine your part of a group working on a project, and your goal is to develop an online platform for generating aptitude exams in real-time Instead of relying on a static set of questions, the system would dynamically fetch questions as needed.To accomplish this, we would leverage web scraping techniques to retrieve questions from varioussources. This dynamic approach not only ensures that the exams remain up-to-date but also minimizes the risk of question paper leaks, which can be a significant concern in the education sector. Furthermore, this innovative system would reduce the workload for examiners who typically spend a lot of time creating question sets manually. Instead, the system would automate the process, generating diverse and relevant question sets efficiently. This not only improves the quality of the exams but also frees up valuable time for educators to focus on other essential tasks.</p>
 <br>
-<strong>## Tech Stack</strong>
+<strong>-->Tech Stack</strong>
 
-**Client:** React, Redux, TailwindCSS
+**FrontEnd:** Html, CSS, Javascript
 
-**Server:** Node, Express
+**Backend:** Flask
+
+**Database:** MongoDB
+
+**Web Scraping:** BeautifulSoup
+
 
 <table><tr>
 <td> 
   <p align="center" style="padding: 10px">
     <img alt="Concept" src="/images/concept_diagram.png" width="900">
-    <p style="text-align: center">Concept Diagram</p>
+    
     <br>
   </p> 
   
 </td>
 </tr></table>
-![App Screenshot](https://imgs.search.brave.com/dMB40ISlKmdNLFEiNlxyX5ceUIDHkAWT1SN4SCOs5tg/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90cnlv/bGFicy5pbWdpeC5u/ZXQvYXNzZXRzL2Js/b2cvMjAxNy0wOC0z/MC1vYmplY3QtZGV0/ZWN0aW9uLWFuLW92/ZXJ2aWV3LWluLXRo/ZS1hZ2Utb2YtZGVl/cC1sZWFybmluZy8y/MDE3LTA4LTMwLW9i/amVjdC1kZXRlY3Rp/b24tMjNiNDYxMWJk/Mi5wbmc_YXV0bz1m/b3JtYXQmZml0PW1h/eCZ3PTM4NDA)
+<p style="text-align: center">Concept Diagram</p>
+<br>
 <table><tr>
 <td> 
   <p align="center" style="padding: 10px">
@@ -37,3 +43,4 @@
   </p>
 </td>
 </tr></table>
+<p style="text-align: center">Flowchart</p>
