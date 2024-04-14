@@ -15,7 +15,7 @@
 <td> 
   <p align="center" style="padding: 10px">
     <img alt="Forwarding" src="/images/concept_diagram.png" width="900">
-    <p>Concept Diagram</p>
+    <p style="text-align: center">Concept Diagram</p>
     <br>
   </p> 
   
@@ -24,7 +24,7 @@
 <table><tr>
 <td> 
   <p align="center" style="padding: 10px">
-    <img alt="Forwarding" src="/images/flowchart.jpg" width="850">
+    <img alt="Forwarding" src="/images/flowchart.png" width="850">
     <p>Flowchart of Application</p>
     <br>
   </p>
